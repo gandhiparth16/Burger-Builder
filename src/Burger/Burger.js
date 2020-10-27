@@ -1,13 +1,19 @@
 import React from "react";
-import classes from "./Burger.css";
+import "./Burger.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 
 const burger = (props) => {
+  const transformedIngredients = Object.keys(props.ingredients).map((igKey) => {
+    //[salad,bacon,meat]
+    return [...Array(props.ingredients[igKey])].map((_, i) => {
+      //Array(length).map(value,index)
+      return <BurgerIngredient key={igKey + i} type={igKey} />; //key used to give unique identitiy
+    });
+  });
   return (
-    <div className={classes.Burger}>
+    <div className="Burger">
       <BurgerIngredient type="bread-top" />
-      <BurgerIngredient type="cheese" />
-      <BurgerIngredient type="meat" />
+      {transformedIngredients}
       <BurgerIngredient type="bread-bottom" />
     </div>
   );
