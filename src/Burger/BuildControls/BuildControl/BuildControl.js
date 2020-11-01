@@ -2,11 +2,13 @@ import React from "react";
 import "./BuildControl.css";
 
 const buildControl = (props) => {
-  <div>
-    <div>{props.label}</div>
-    <button>More</button>
-    <button>Less</button>
-  </div>;
+  return (
+    <div className="BuildControl">
+      <div className="Label">{props.label}</div>
+      <button className="More">More</button>
+      <button className="Less">Less</button>
+    </div>
+  );
 };
 
 export default buildControl;
