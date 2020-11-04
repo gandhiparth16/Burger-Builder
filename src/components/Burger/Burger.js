@@ -1,18 +1,19 @@
 import React from "react";
 import "./Burger.css";
-import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
+import BurgerIngredient from "../Burger/BurgerIngredient/BurgerIngredient";
 
 const burger = (props) => {
   let transformedIngredients = Object.keys(props.ingredients)
     .map((igKey) => {
       //[salad,bacon,meat]
       return [...Array(props.ingredients[igKey])].map((_, i) => {
-        //Array(length).map(value,index)
+        //Array(length)
+        //Array(individual iglength).map(value,index)
         return <BurgerIngredient key={igKey + i} type={igKey} />; //key used to give unique identitiy
-      });
+      }); //[[bacon],[salad]]
     })
     .reduce((arr, el) => {
-      return arr.concat(el);
+      return arr.concat(el); //[salad,bacon]
     }, []); //reduce(prev_val,curr_val)=>{callback_array},initial_value of reduced value
   console.log(
     transformedIngredients
