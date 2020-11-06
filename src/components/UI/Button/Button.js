@@ -2,18 +2,12 @@ import React from "react";
 import "./Button.css";
 
 const button = (props) => {
-  const btnType = props.btnType;
-  let btnClass = "Button";
-  switch (btnType) {
-    case "Success":
-      btnClass = btnClass.concat(".Success");
-      break;
-    case "Danger":
-      btnClass = btnClass.concat(".Danger");
-      break;
-    default:
-      btnClass = btnClass.concat(".Plain");
-      break;
+  const btnType = props.btntype;
+  let btnClass = null;
+  if (btnType === "Success") {
+    btnClass = "Button.Success";
+  } else if (btnType === "Danger") {
+    btnClass = "Button.Danger";
   }
   console.log(btnClass);
 
