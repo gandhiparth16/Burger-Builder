@@ -1,5 +1,4 @@
 import React from "react";
-import Aux from "../../../hoc/Aux";
 import Button from "../../UI/Button/Button";
 
 const orderSummary = (props) => {
@@ -12,7 +11,7 @@ const orderSummary = (props) => {
     ); //{props.INGREDIENT_PRICES[igKey]*props.ingredients[igKey]}
   });
   return (
-    <Aux>
+    <>
       <h3> Order Summary</h3>
       <ul> {ingredientSummary} </ul>
       <p>
@@ -33,7 +32,7 @@ const orderSummary = (props) => {
           CANCEL
         </Button>
       </p>
-    </Aux>
+    </>
   );
 };
 
